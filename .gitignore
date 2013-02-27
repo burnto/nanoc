@@ -1,1 +1,3 @@
 doc/yardoc
+.rbenv-gemsets
+.ruby-version
