@@ -38,14 +38,9 @@ module Nanoc::Extra
 
         # Find rep
         path = Rack::Utils::unescape(env['PATH_INFO'])
-        reps = site.items.map { |i| i.reps }.flatten
-        rep = reps.find do |r|
-          r.path == path ||
-            r.raw_path == site.config[:output_dir] + path
-        end
 
-        # Recompile
-        site.compile if rep
+        # Compile every time
+        site.compile
 
         # Get paths by appending index filenames
         if path =~ /\/$/
